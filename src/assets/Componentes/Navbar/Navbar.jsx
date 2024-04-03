@@ -1,10 +1,8 @@
-import Logo from "../../assets/logos/png/logo_hr_6.png";
-
+import logo from "../../logos/logo_1.png";
 const Navbar = () => {
-
   return (
-    <nav className="fixed top-0 w-full bg-[#1634a7] z-[10000000]">
-    
+    <nav className="w-full  bg-gray-800 flex justify-center items-center p-4">
+      <img className="w-64" src={logo} alt="logo" />
     </nav>
   );
 };
