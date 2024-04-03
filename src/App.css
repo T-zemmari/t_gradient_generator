@@ -2,7 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.App {
-  width: 100vw;
-  min-height: 100vh;
-}

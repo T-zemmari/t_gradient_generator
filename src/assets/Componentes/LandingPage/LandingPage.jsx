@@ -1,7 +1,11 @@
+import GradientGenerator from "../GradientGenerator/GradientGenerator";
+
 const LandingPage = () => {
   return (
     <>
-      <div className="landing_container"></div>
+      <div className="w-full min-h-screen">
+        <GradientGenerator />
+      </div>
     </>
   );
 };
