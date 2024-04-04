@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BsArrowUp, BsArrowDown, BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 const GradientGenerator = () => {
   const [gradientCode, setGradientCode] = useState(
@@ -23,6 +24,29 @@ const GradientGenerator = () => {
     handleGradientChange();
   };
 
+  const DirectionIcon = ({ direction }) => {
+    switch (direction) {
+      case "to top":
+        return <BsArrowUp style={{color:'black',fontSize:'25px'}}/>;
+      case "to bottom":
+        return <BsArrowDown style={{color:'black',fontSize:'25px'}}/>;
+      case "to left":
+        return <BsArrowLeft style={{color:'black',fontSize:'25px'}}/>;
+      case "to right":
+        return <BsArrowRight style={{color:'black',fontSize:'25px'}}/>;
+      case "to top left":
+        return <BsArrowUp style={{ transform: "rotate(-45deg)",color:'black',fontSize:'25px' }} />;
+      case "to top right":
+        return <BsArrowUp style={{ transform: "rotate(45deg)",color:'black',fontSize:'25px' }} />;
+      case "to bottom left":
+        return <BsArrowDown style={{ transform: "rotate(45deg)" ,color:'black',fontSize:'25px'}} />;
+      case "to bottom right":
+        return <BsArrowDown style={{ transform: "rotate(-45deg)",color:'black',fontSize:'25px' }} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div
       className={`w-full min-h-screen p-8 bg-gray-100 flex flex-col justify-end items-end`}
@@ -30,16 +54,16 @@ const GradientGenerator = () => {
     >
       <h1 className="text-3xl font-bold text-gray-800 mb-4"></h1>
       <div
-        className="w-full max-w-lg bg-white rounded-lg shadow-md p-6"
+        className="w-full max-w-lg bg-[#ffffff40] rounded-lg shadow-md p-6"
         id="container_controls"
       >
-        <div className="flex flex-row gap-2">
-          <div className="mb-4">
+        <div className="flex flex-row justify-between">
+          <div className="mb-4 flex flex-col justify-center items-center">
             <label
               htmlFor="start-color"
-              className="block text-gray-700 font-bold mb-2"
+              className="block text-[#8b2f2f] font-bold mb-2"
             >
-              Start
+              START
             </label>
             <input
               id="start-color"
@@ -52,9 +76,9 @@ const GradientGenerator = () => {
           <div className="mb-4">
             <label
               htmlFor="end-color"
-              className="block text-gray-700 font-bold mb-2"
+              className="block text-[#8b2f2f] font-bold mb-2"
             >
-              End
+              END
             </label>
             <input
               id="end-color"
@@ -65,28 +89,28 @@ const GradientGenerator = () => {
             />
           </div>
         </div>
-        <div className="mb-4">
-          <label
-            htmlFor="gradient-direction"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Gradient Direction:
-          </label>
-          <select
-            id="gradient-direction"
-            className="w-full bg-gray-200 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={direction}
-            onChange={(e) => handleDirectionChange(e.target.value)}
-          >
-            <option value="to top">To Top</option>
-            <option value="to bottom">To Bottom</option>
-            <option value="to left">To Left</option>
-            <option value="to right">To Right</option>
-            <option value="to top left">To Top Left</option>
-            <option value="to top right">To Top Right</option>
-            <option value="to bottom left">To Bottom Left</option>
-            <option value="to bottom right">To Bottom Right</option>
-          </select>
+        <div className="mb-4 ">
+          <div className="flex items-center justify-between">
+            {[
+              "to top",
+              "to bottom",
+              "to left",
+              "to right",
+              "to top left",
+              "to top right",
+              "to bottom left",
+              "to bottom right",
+            ].map((dir) => (
+              <div
+                key={dir}
+                className="flex items-center gap-1 cursor-pointer flex-col"
+                onClick={() => handleDirectionChange(dir)}
+              >
+                <DirectionIcon direction={dir}/>
+                {/*<span>{dir}</span>*/}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
