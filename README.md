@@ -2,7 +2,7 @@
 
 This is a React application for generating custom CSS gradients. It allows users to choose start and end colors, as well as the gradient direction.
 
-![T Gradient Generator](./src/assets/imgs/t_gradien_generator_1.png)
+![T Gradient Generator](./src/assets/imgs/t_gradien_generator_2.png)
 
 ## How to Use
 
