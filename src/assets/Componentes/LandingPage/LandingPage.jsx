@@ -24,10 +24,8 @@ const GradientGenerator = () => {
   };
 
   return (
-    <div className="w-full min-h-screen p-8 bg-gray-100 flex flex-col justify-center items-center">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">
-        Gradient Generator
-      </h1>
+    <div className={`w-full min-h-screen p-8 bg-gray-100 flex flex-col justify-center items-center`} style={{background:`${gradientCode}`}}>
+      <h1 className="text-3xl font-bold text-gray-800 mb-4"></h1>
       <div className="w-full max-w-lg bg-white rounded-lg shadow-md p-6">
         <div className="mb-4">
           <label
