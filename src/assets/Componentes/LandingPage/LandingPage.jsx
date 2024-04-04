@@ -3,10 +3,10 @@ import { BsArrowUp, BsArrowDown, BsArrowLeft, BsArrowRight } from "react-icons/b
 
 const GradientGenerator = () => {
   const [gradientCode, setGradientCode] = useState(
-    "linear-gradient(to right, #ff7e5f, #feb47b)"
+    "linear-gradient(to right, #5C6FFF, #E28136)"
   );
-  const [startColor, setStartColor] = useState("#ff7e5f");
-  const [endColor, setEndColor] = useState("#feb47b");
+  const [startColor, setStartColor] = useState("#5C6FFF");
+  const [endColor, setEndColor] = useState("#E28136");
   const [direction, setDirection] = useState("to right");
 
   const handleGradientChange = () => {
