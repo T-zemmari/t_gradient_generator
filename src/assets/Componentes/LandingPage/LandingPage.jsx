@@ -8,9 +8,15 @@ const GradientGenerator = () => {
   const [startColor, setStartColor] = useState("#5C6FFF");
   const [endColor, setEndColor] = useState("#E28136");
   const [direction, setDirection] = useState("to right");
+  const [gradientType, setGradientType] = useState("linear");
 
   const handleGradientChange = () => {
-    const newGradient = `linear-gradient(${direction}, ${startColor}, ${endColor})`;
+    let newGradient;
+    if (gradientType === "linear") {
+      newGradient = `linear-gradient(${direction}, ${startColor}, ${endColor})`;
+    } else {
+      newGradient = `radial-gradient(circle, ${startColor}, ${endColor})`;
+    }
     setGradientCode(newGradient);
   };
 
@@ -87,6 +93,22 @@ const GradientGenerator = () => {
               value={endColor}
               onChange={(e) => handleColorChange(e.target.value, false)}
             />
+          </div>
+        </div>
+        <div className="mb-4 ">
+          <div className="flex items-center justify-between">
+            <div
+              className="flex items-center gap-1 cursor-pointer flex-col"
+              onClick={() => setGradientType("linear")}
+            >
+              <span>Linear</span>
+            </div>
+            <div
+              className="flex items-center gap-1 cursor-pointer flex-col"
+              onClick={() => setGradientType("radial")}
+            >
+              <span>Radial</span>
+            </div>
           </div>
         </div>
         <div className="mb-4 ">
