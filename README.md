@@ -6,7 +6,7 @@ This is a React application for generating custom CSS gradients. It allows users
 
 ## How to Use
 
-1. Clone this repository to your local machine or [download it](https://github.com/T-zemmari/t_gradient_generator).
+1. Clone this repository to your local machine or [download it](T-zemmari/t_gradient_generator/archive/refs/heads/main.zip).
 2. Navigate to the project directory.
 3. Install dependencies with `npm install`.
 4. Start the development server with `npm run dev`.
