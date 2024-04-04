@@ -203,31 +203,39 @@ const GradientGenerator = () => {
             </>
           )}
         </div>
-        
+
         <div className="mb-4 ">
-         {gradientType && gradientType === "linear" && ( <div className="flex items-center justify-between">
-            {[
-              "to top",
-              "to bottom",
-              "to left",
-              "to right",
-              "to top left",
-              "to top right",
-              "to bottom left",
-              "to bottom right",
-            ].map((dir) => (
-              <div
-                key={dir}
-                className="flex items-center gap-1 cursor-pointer flex-col"
-                onClick={() => handleDirectionChange(dir)}
-              >
-                <DirectionIcon direction={dir} />
-                {/*<span>{dir}</span>*/}
-              </div>
-            ))}
-          </div>   
-        )}
+          {gradientType && gradientType === "linear" && (
+            <div className="flex items-center justify-between">
+              {[
+                "to top",
+                "to bottom",
+                "to left",
+                "to right",
+                "to top left",
+                "to top right",
+                "to bottom left",
+                "to bottom right",
+              ].map((dir) => (
+                <div
+                  key={dir}
+                  className="flex items-center gap-1 cursor-pointer flex-col"
+                  onClick={() => handleDirectionChange(dir)}
+                >
+                  <DirectionIcon direction={dir} />
+                  {/*<span>{dir}</span>*/}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
+      </div>
+      {/* Div para mostrar el código CSS generado */}
+      <div className="w-full max-w-lg bg-[#ffffff40] rounded-lg shadow-md p-6 mt-4">
+        <label className="block text-[#8b2f2f] font-bold mb-2">
+          CSS Code
+        </label>
+        <code className="text-gray-600">{gradientCode}</code>
       </div>
     </div>
   );
