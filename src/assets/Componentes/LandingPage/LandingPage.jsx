@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   BsArrowUp,
   BsArrowDown,
   BsArrowLeft,
   BsArrowRight,
 } from "react-icons/bs";
+import SwAlert from "../SwAlert/SwAlert";
 
 const GradientGenerator = () => {
   const [gradientCode, setGradientCode] = useState(
@@ -20,6 +21,8 @@ const GradientGenerator = () => {
   const [radialPositionBottomColor, setRadialPositionBottomColor] = useState(
     "#4d9f0c"
   );
+
+  const codeRef = useRef(null);
 
   const handleGradientChange = () => {
     let newGradient;
@@ -99,6 +102,14 @@ const GradientGenerator = () => {
         );
       default:
         return null;
+    }
+  };
+
+  const copyToClipboard = () => {
+    if (codeRef.current) {
+      const codeElement = codeRef.current;
+      navigator.clipboard.writeText(codeElement.textContent);
+      SwAlert(`Css copiado correctamente`);
     }
   };
 
@@ -231,11 +242,17 @@ const GradientGenerator = () => {
         </div>
       </div>
       {/* Div para mostrar el código CSS generado */}
-      <div className="w-full max-w-lg bg-[#ffffff40] rounded-lg shadow-md p-6 mt-4">
-        <label className="block text-[#8b2f2f] font-bold mb-2">
-          CSS Code
-        </label>
-        <code className="text-gray-600">{gradientCode}</code>
+      <div className="w-full max-w-lg bg-[#ffffff40] rounded-lg shadow-md p-6 mt-4 flex flex-col">
+        <label className="block text-[#8b2f2f] font-bold mb-2" >CSS Code</label>
+        <code ref={codeRef} className="text-gray-600">
+          {gradientCode}
+        </code>
+        <button
+          onClick={copyToClipboard}
+          className="bg-[#e28136f0] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+        >
+          Copy CSS
+        </button>
       </div>
     </div>
   );
